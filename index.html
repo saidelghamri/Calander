@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+
+<link rel="stylesheet" type="text/css" href="Layout/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="Layout/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="Layout/css/calendar.css">
+<script src="Layout/js/jquery-1.12.1.min.js"></script>
+<script src="Layout/js/bootstrap.min.js"></script>
+<script src="Layout/js/calendar.js"></script>
+<style type="text/css">
+	
+</style>
+</head>
+<body>
+
+<div id="form">
+
+
+
+
+
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2 style="text-align: center;">fill the field below for setting new reservation</h2>
+    </div>
+    <div class="modal-body">
+       <div class="row">
+        <div class="col-lg-3"><span class="text-reservation">Nom</span></div>
+        <div class="col-lg-3"><input type="text" name="" class="form-control" id="fname"></div>
+        <div class="col-lg-3"><span class="text-reservation">Prénom<span></div>
+        <div class="col-lg-3"><input type="text" name="" class="form-control" id="lname"></div>
+      </div><!--/row-->
+      <div class="row">
+        <div class="col-lg-3"><span class="text-reservation">Numéro de Telephone</span></div>
+        <div class="col-lg-3"><input type="text" name="" class="form-control" id="nbphone"></div>
+        <div class="col-lg-3"><span class="text-reservation">Email Address</span></div>
+        <div class="col-lg-3"><input type="Email" name="" class="form-control" id="email"></div>
+      </div><!--/row-->
+      <div class="row">
+        <div class="col-lg-3"><span class="text-reservation">Type de reservation</span></div>
+        <div class="col-lg-3">     
+            <select id="type_of_reservation_selected" class="form-control">
+	            <option value="#e74c3c" data-name="URGENCES">URGENCES</option>
+	            <option value="#3498db" data-name="BLOC">BLOC</option>
+	            <option value="#2ecc71" data-name="CONSULTAION">CONSULTAION</option>
+	            <option value="#1abc9c" data-name="PAS DE BLOC">PAS DE BLOC</option>
+	            <option value="#34495e" data-name="PAS DE C">PAS DE CS</option>
+              <option value="#9b59b6" data-name="AVRANCHES">AVRANCHES</option>
+              <option value="#e67e22" data-name="AUTRES">AUTRES</option>
+              <option value="#2980b9" data-name="STOP">STOP</option>
+
+            </select>
+        </div>
+        <div class="col-lg-3"><span class="text-reservation">Doctor</span></div>
+        <div class="col-lg-3">
+             <select id="doctor" class="form-control">
+	            <option value="doctor1">doctor1</option>
+	            <option value="doctor2">doctor2</option>
+	            <option value="doctor3">doctor3</option>
+	            <option value="doctor4">doctor4</option>
+	         </select>
+        </div>
+      </div><!--/row-->
+      <div class="row">
+        <div class="col-lg-3"><span class="text-reservation">From</span></div>
+        <div class="col-lg-3">        	  
+              <select id="from-select-option_hour" class="form-control">
+              	 <option value="from-hour">hour</option>
+              </select>
+	          <select id="from-select-option_minu" class="form-control">
+	          	  <option value="from-minu">minu</option>
+	          </select>
+	     </div>
+        <div class="col-lg-3"><span class="text-reservation">To<span></div>
+        <div class="col-lg-3">
+        	  <select id="option_hour_select" class="form-control"></select>
+	          <select id="option_minu_select" class="form-control"></select>
+        </div>
+      </div><!--/row-->
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3"><input type="submit" name="" value="Set Reservation" class="btn btn-primary" id="set"></div>
+      </div><!--/row-->
+    
+
+    </div><!--/Modal-body-->
+    <div class="modal-footer">
+      
+    </div>
+  </div>
+
+</div><!--/The Modal-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@Start@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<button class="btn btn-primary" id="btn-mnt">month</button>
+<button class="btn btn-primary" id="btn-wk">week</button>
+<button class="btn btn-primary" id="btn-dy">day</button>
+<button class="btn btn-primary" id="btn-lst" >list</button>
+<div class="container" id="week" >
+  <h2>Calendar Week</h2>
+              
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th>Today</th>
+        <th>Lundi</th>
+        <th>Mardi</th>
+        <th>Mercredi</th>
+        <th>Jeudi</th>
+        <th>Vendredi</th>
+        <th>Samedi</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+</div><!--/container week-->
+
+
+<div class="container" id="month" style="display: none;">
+  <h2>Calendar Month </h2>
+<p id="demo"></p>
+
+               
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Demanch</th>
+        <th>Lundi</th>
+        <th>Mardi</th>
+        <th>Mercredi</th>
+        <th>Jeudi</th>
+        <th>Vendredi</th>
+        <th>Samedi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)">
+        <span class="month-txt">30</span>
+         <div draggable="true" ondragstart="drag(event)"  id="drag1" class="drag-c" >consultation</div> 
+        </td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)">
+        <span class="month-txt">31</span>
+        <div draggable="true" ondragstart="drag(event)" id="drag2" class="drag-c" >urgence</div>  
+        </td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">1</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">2</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" >
+        <span class="month-txt">3</span>
+        <div draggable="true" ondragstart="drag(event)" id="drag3" class="drag-c" >autre</div>  
+        </td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">4</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" >
+        <span class="month-txt">5</span>
+        <div draggable="true" ondragstart="drag(event)" id="drag4" class="drag-c" >conference</div>  
+        </td>
+      </tr>
+      <tr>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">30</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">31</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" >
+        <span class="month-txt">1</span>
+        <div draggable="true" ondragstart="drag(event)" id="drag5" class="drag-c">metting</div>  
+        </td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">2</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">3</span></td>
+        <td><span class="month-txt">4</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">5</span></td>
+      </tr>
+      <tr>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">30</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">31</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" >
+        <span class="month-txt">1</span>
+        <div draggable="true" ondragstart="drag(event)"  id="drag6" class="drag-c" >autre89</div>  
+        </td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">2</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" >
+        <span class="month-txt">3</span>
+        <div draggable="true" ondragstart="drag(event)" id="drag7" class="drag-c" >birthday</div>  
+        </td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">4</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">5</span></td>
+      </tr>
+      <tr>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">30</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" >
+        <span class="month-txt">31</span>
+         <div draggable="true" ondragstart="drag(event)" id="drag8" class="drag-c" >lunch</div>  
+        </td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">1</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">2</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">3</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" ><span class="month-txt">4</span></td>
+        <td ondrop="drop(event)" ondragover="allowDrop(event)" >
+        <span class="month-txt">5</span>
+        <div draggable="true" ondragstart="drag(event)" id="drag9" class="drag-c" >dinner</div>  
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div><!--/container Month-->
+
+
+
+
+<div class="container" id="day" style="display: none;">
+  <h2>Calendar Month </h2>
+              
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+       <th></th>
+        <th>Demanch</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="day-hr">8:00</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="day-hr">9:00</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="day-hr">10:00</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="day-hr">11:00</span></td>
+        <td></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div><!--/container Month-->
+
+
+<div class="container" id="list" style="display: none;">
+  <h2>Calendar list </h2>
+              
+  <table class="table">
+    <tbody>
+      <tr class="list-tit">
+        <td colspan="4"><span class="day-name">thursday</span><span class="day-date">Agust 24,2017</span></td>
+      </tr>
+
+      <tr class="list-cnt">
+        <td ><span class="rdv-time">all-day</span></td>
+        <td ><span class="dot"></span></td>
+        <td ><span class="rdv-type">Conference</span></td>
+      </tr>
+
+      <tr class="list-tit">
+        <td colspan="4"><span class="day-name">friday</span><span class="day-date">Agust 24,2017</span></td>
+      </tr>
+
+      <tr class="list-cnt">
+        <td ><span class="rdv-time">8:20pm 5:30am</span></td>
+        <td ><span class="dot"></span></td>
+        <td ><span class="rdv-type">Conference</span></td>
+      </tr>
+
+      <tr class="list-cnt">
+        <td ><span class="rdv-time">all-day</span></td>
+        <td ><span class="dot"></span></td>
+        <td ><span class="rdv-type">Conference</span></td>
+      </tr>
+
+      <tr class="list-cnt">
+        <td ><span class="rdv-time">all-day</span></td>
+        <td ><span class="dot"></span></td>
+        <td ><span class="rdv-type">Conference</span></td>
+      </tr>
+
+      <tr class="list-cnt">
+        <td ><span class="rdv-time">all-day</span></td>
+        <td ><span class="dot"></span></td>
+        <td ><span class="rdv-type">Conference</span></td>
+      </tr>
+
+      <tr class="list-cnt">
+        <td ><span class="rdv-time">all-day</span></td>
+        <td ><span class="dot"></span></td>
+        <td ><span class="rdv-type">Conference</span></td>
+      </tr>
+
+
+      <tr class="list-tit">
+        <td colspan="4"><span class="day-name">sturday</span><span class="day-date">Agust 24,2017</span></td>
+      </tr>
+
+      <tr class="list-cnt">  
+           <td ><span class="rdv-time">7:00pm</span></td>
+           <td><span class="dot"></span></td>
+           <td><span class="rdv-type">Birthday</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div><!--/container Month-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@End@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+<input type="number" name="" class="form-control" id="from" placeholder="from : " value="8" style="width: 30%; display: inline-block;"> To: <input type="number" name="" class="form-control" id="to" placeholder="To :" value="20" style="width: 30% ; display: inline-block;">
+<input type="number" name="" class="form-control" id="divider" value="15" style="width: 50%; margin-top: 10px">
+<input type="submit" name="" value="go" class="btn btn-primary" id="submit" style="width: 100px; margin-top: 10px">
+
+<p id="sp" >smartphones, iPhone, portrait 480x320 phones</p>
+<p id="pst"  >portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.</p>
+<p id="ptile" > portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones</p>
+<p id="tli" >tablet, landscape iPad, lo-res laptops ands desktops </p>
+<p id="bltld" >big landscape tablets, laptops, and desktops</p>
+<p id="ld" >hi-res laptops and desktops </p>
+
+<script>
+
+
+
+</script>
+
+</body>
+</html>

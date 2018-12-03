@@ -1,0 +1,392 @@
+
+
+/***********************************************@@@@@@@@@@@@@@@@@@==Start==@@@@@@@@@@@@@@@@@@***********************************************/
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border-bottom: 1px solid transparent;
+    border-right: 1px solid #ddd;
+
+}
+
+.table-borderless > tbody > tr > td:last-child,
+.table-borderless > thead > tr > th:last-child {
+   
+    border-right: 1px solid #ddd;
+}
+.table-borderless {
+    border: 1px solid #ddd;
+}
+
+.table-borderless > tbody > tr > td:not(:first-child) {
+   border-bottom: 2px dotted #eee;
+   padding: 0px;
+   font-size: 12px;
+   padding-left: 8px;
+   color:grey;
+}
+
+.table-borderless > thead > tr > th{
+      color: inherit;
+    font-weight: inherit;
+}
+.table-borderless > thead > tr > th,
+ .table-borderless > tbody > tr > td.brd-btm{
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+
+.table-borderless > tbody > tr > td:first-child{
+    width: 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 11px;
+    font-weight: 100;
+    font-family: monospace;
+    padding-left: 5px;
+    text-align: center;
+    color: #555
+
+}
+
+#allday{
+  height: 40px
+}
+.allday > td:first-child{
+    text-align:center; 
+    vertical-align:middle;
+}
+/*********************************@@@@@@@@@@@@@@@@@@==End==@@@@@@@@@@@@@@@@@@*********************************/
+
+span.date {
+    color: #555;
+    /* margin-top: 20px; */
+    position: relative;
+    top: 8px;
+    left: 19%;
+}
+
+/*****
+*** strat Modal style
+*****/
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #1abc9c;
+    opacity: 0.8;
+    color: white;
+}
+
+.modal-body {padding: 10px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #1abc9c;
+    opacity: 0.8;
+    color: white;
+}
+
+.modal-body>.row {
+    margin-top: 17px;
+}
+
+span.text-reservation {
+    font-size: large;
+}
+
+.form-control {
+    /*margin-left: -60px;*/
+}
+
+select#option_minu_select,
+select#from-select-option_minu  {
+    margin-left: 0px;
+}
+
+select#option_hour_select, 
+select#option_minu_select,
+select#from-select-option_hour,
+select#from-select-option_minu {
+    width: 49%;
+    display: inline-block;
+}
+
+input#set {
+    width: 239px;
+    font-size: larger;
+    background-color: #16a085;
+   /*margin-left: -50px;*/
+}
+
+/******
+*** Ed Modal style
+*******/
+
+
+/***/
+
+i.fa.fa-address-card{
+  color: #020202;
+  float: right;
+  cursor: pointer;
+}
+
+/*
+***/
+#sp,#pst,#ptile,#tli, #bltld,#ld{
+    display: none;
+}
+
+
+/**media screen**/
+@media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ 
+
+     #sp{
+        display: block;
+     }
+  #pst,#ptile,#tli, #bltld,#ld{
+    display: none;
+     }
+
+}
+@media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
+     #pst{
+        display: block;
+     }
+     #sp,#ptile,#tli, #bltld,#ld{
+    display: none;
+}
+}
+@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+      #ptile{
+        display: block;
+     }
+     #sp,#pst,#tli, #bltld,#ld{
+    display: none;
+}
+}
+@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+      #tli{
+        display: block;
+     }
+     #sp,#pst,#ptile,#bltld,#ld{
+    display: none;
+}
+}
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
+      #bltld{
+        display: block;
+     }
+     #sp,#pst,#ptile,#tli,#ld{
+    display: none;
+}
+}
+@media (min-width:1281px) { /* hi-res laptops and desktops */
+      #ld{
+        display: block;
+     }
+     #sp,#pst,#ptile,#tli, #bltld{
+    display: none;
+}
+ }
+
+
+/**************************========@@@@@@@@@@@Month@@@@@@@@@@@@===========****************************************/
+
+
+#month > table.table-bordered > thead > tr > th {
+    width: 130px;
+    padding: 0;
+    text-align: center;
+    border-bottom: 1px;
+    font-weight: 100
+}
+
+#month > table.table-bordered > tbody > tr > td{
+  height: 120px;
+  max-width: 20px;
+} 
+#month > table.table-bordered > tbody > tr > td> span.month-txt{
+  float: right;
+  margin-bottom: 12px
+}
+
+/****start style drag & drop month ****/
+
+#month > table.table-bordered > tbody > tr > td > div.drag-c:nth-of-type(1) {
+
+  margin-top:18px; 
+
+}
+div#drop-here {
+    border: 2px dotted #9d9d9d;
+    text-align: center;
+    display: none;
+}
+.drag-c{
+    background-color: #1197C1;
+    color: #fff;
+    width: 102%;
+    padding-left: 6px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    resize: horizontal;
+    overflow: auto;
+    position: relative;
+}
+
+a
+{
+  cursor: pointer;
+}
+
+.last-one{
+  display: none;
+}
+
+/*******End drag style*********/
+
+/**************************========@@@@@@@@@@@@End Month@@@@@@@@@@@===========****************************************/
+
+/**************************========@@@@@@@@@@@day@@@@@@@@@@@@===========****************************************/
+
+#day > table.table-bordered > thead > tr > th {
+    width: 130px;
+    padding: 0;
+    text-align: center;
+    border-bottom: 1px;
+    font-weight: 100
+}
+
+
+#day > table.table-bordered > tbody > tr > td:first-child{
+width: 5%;
+
+}
+
+
+/**************************========@@@@@@@@@@@@End day@@@@@@@@@@@===========****************************************/
+
+
+/**************************========@@@@@@@@@@@list@@@@@@@@@@@@===========****************************************/
+
+
+#list table.table{
+
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-right:1px solid #ddd
+
+}
+
+
+
+#list > table.table > tbody > tr.list-tit{
+
+background-color: #eee
+
+}
+#list > table.table > tbody > tr.list-tit > td{
+/*width: 100%;*/
+
+
+}
+#list > table.table > tbody > tr.list-tit > td > span.day-date{
+  float: right;
+}
+
+#list > table.table > tbody > tr.list-tit > td > span.day-name{
+  float: left;
+}
+
+#list > table.table > tbody > tr > td{
+
+}
+
+#list > table.table > tbody > tr.list-cnt > td:first-child{
+  width: 11%
+}
+
+#list > table.table > tbody > tr.list-cnt > td:nth-child(2){
+      width: 12px;
+}
+#list > table.table > tbody > tr.list-cnt > td > span.dot{
+      float: right;
+   
+    margin-top: 5px;
+}
+.dot {
+     display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+        background-color: #3a87ad;
+}
+
+/**************************========@@@@@@@@@@@@End list@@@@@@@@@@@===========****************************************/
+.btn{
+  margin: 0 auto
+}
