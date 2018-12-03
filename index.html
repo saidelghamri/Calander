@@ -7,9 +7,7 @@
 <link rel="stylesheet" type="text/css" href="Layout/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="Layout/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="Layout/css/calendar.css">
-<script src="Layout/js/jquery-1.12.1.min.js"></script>
-<script src="Layout/js/bootstrap.min.js"></script>
-<script src="Layout/js/calendar.js"></script>
+
 <style type="text/css">
 	
 </style>
@@ -105,10 +103,12 @@
 </div><!--/The Modal-->
 
 <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@Start@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-<button class="btn btn-primary" id="btn-mnt">month</button>
-<button class="btn btn-primary" id="btn-wk">week</button>
-<button class="btn btn-primary" id="btn-dy">day</button>
-<button class="btn btn-primary" id="btn-lst" >list</button>
+<div class="container">
+  <button class="btn btn-primary" id="btn-mnt">month</button>
+  <button class="btn btn-primary" id="btn-wk">week</button>
+  <button class="btn btn-primary" id="btn-dy">day</button>
+  <button class="btn btn-primary" id="btn-lst" >list</button>
+</div>
 <div class="container" id="week" >
   <h2>Calendar Week</h2>
               
@@ -320,22 +320,32 @@
 <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@End@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
 
-<input type="number" name="" class="form-control" id="from" placeholder="from : " value="8" style="width: 30%; display: inline-block;"> To: <input type="number" name="" class="form-control" id="to" placeholder="To :" value="20" style="width: 30% ; display: inline-block;">
-<input type="number" name="" class="form-control" id="divider" value="15" style="width: 50%; margin-top: 10px">
-<input type="submit" name="" value="go" class="btn btn-primary" id="submit" style="width: 100px; margin-top: 10px">
+<div class="container">
+  <div class="form-group row">
+    <label for="from" class="col-sm-2 col-form-label">From : </label>
+    <div class="col-sm-10">
+       <input type="number" name="" class="form-control" id="from" placeholder="from : " value="8" > 
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="to" class="col-sm-2 col-form-label">to : </label>
+    <div class="col-sm-10">
+      <input type="number" name="" class="form-control" id="to" placeholder="To :" value="20" > 
+    </div>
+  </div>
 
-<p id="sp" >smartphones, iPhone, portrait 480x320 phones</p>
-<p id="pst"  >portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.</p>
-<p id="ptile" > portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones</p>
-<p id="tli" >tablet, landscape iPad, lo-res laptops ands desktops </p>
-<p id="bltld" >big landscape tablets, laptops, and desktops</p>
-<p id="ld" >hi-res laptops and desktops </p>
+  <div class="form-group row">
+    <label for="divider" class="col-sm-2 col-form-label">divide on (minutes) : </label>
+    <div class="col-sm-10">
+      <input type="number" name="" class="form-control" id="divider" value="15" >
+    </div>
+  </div>
 
-<script>
+   <input type="submit" name="" value="go" class="btn btn-primary" id="submit" style="width: 100px; margin-top: 10px">
 
-
-
-</script>
+</div>
+<script src="Layout/js/jquery-1.12.1.min.js"></script>
+<script src="Layout/js/calendar.js"></script>
 
 </body>
 </html>

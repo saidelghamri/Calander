@@ -60,6 +60,10 @@
     text-align:center; 
     vertical-align:middle;
 }
+
+span.type-reservation{
+  color: white
+}
 /*********************************@@@@@@@@@@@@@@@@@@==End==@@@@@@@@@@@@@@@@@@*********************************/
 
 span.date {
@@ -69,6 +73,7 @@ span.date {
     top: 8px;
     left: 19%;
 }
+
 
 /*****
 *** strat Modal style
@@ -389,4 +394,8 @@ background-color: #eee
 /**************************========@@@@@@@@@@@@End list@@@@@@@@@@@===========****************************************/
 .btn{
   margin: 0 auto
+}
+.form-contole{
+  width: 30%; 
+  display: inline-block;
 }
